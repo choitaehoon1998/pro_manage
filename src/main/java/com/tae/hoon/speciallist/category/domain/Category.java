@@ -1,6 +1,6 @@
-package com.tae.hoon.speciallist.category;
+package com.tae.hoon.speciallist.category.domain;
 
-import com.tae.hoon.speciallist.categoryItem.CategoryItem;
+import com.tae.hoon.speciallist.categoryItem.domain.CategoryItem;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,20 +15,12 @@ import java.util.List;
 @Table(name = "CATEGORY")
 public class Category {
     @Id
-    @Column(name = "ID")
-    private String id;
+    @Column(name = "CATEGORY_ID")
+    private Long categoryId;
 
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy= "category")
+    @OneToMany(mappedBy= "categoryItemId")
     private List<CategoryItem> categoryItemList = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "PARENT_ID")
-    private Category parent;
-
-    @OneToMany(mappedBy = "parent")
-    private List<Category> child = new ArrayList<>();
-
 }

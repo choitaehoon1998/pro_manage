@@ -20,7 +20,7 @@ class UserRepositoryTest {
     @BeforeEach
     void setUp() {
         User user = User.builder()
-                .id(1L)
+                .userId(1L)
                 .gender(Gender
                         .MAN)
                 .build();

@@ -1,6 +1,6 @@
 package com.tae.hoon.speciallist.item.domain;
 
-import com.tae.hoon.speciallist.categoryItem.CategoryItem;
+import com.tae.hoon.speciallist.categoryItem.domain.CategoryItem;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,18 +15,18 @@ import java.util.List;
 @Table(name = "ITEM")
 public class Item {
     @Id
-    @Column(name = "ID")
-    private String id;
+    @Column(name = "ITEM_ID")
+    private Long itemId;
 
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "price")
+    @Column(name = "PRICE")
     private Integer price;
 
     @Column(name = "STOCK_QUANTITY")
     private Integer stockQuantity;
 
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "categoryItemId")
     private List<CategoryItem> categoryItemList = new ArrayList<>();
 }

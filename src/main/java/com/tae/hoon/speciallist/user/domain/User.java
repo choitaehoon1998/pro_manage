@@ -18,8 +18,8 @@ import java.util.List;
 public class User {
 
     @Id
-    @Column(name = "ID")
-    private Long id;
+    @Column(name = "USER_ID")
+    private Long userId;
 
     @Column(name = "GENDER")
     @Convert(converter = GenderConvertor.class)
@@ -34,7 +34,7 @@ public class User {
     @Column(name = "ZIPCODE")
     private String zipcode;
 
-    @OneToMany
+    @OneToMany(mappedBy = "orderId")
     private List<Order> orders = new ArrayList<>();
 
 }

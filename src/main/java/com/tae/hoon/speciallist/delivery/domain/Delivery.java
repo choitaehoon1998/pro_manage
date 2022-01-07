@@ -16,10 +16,10 @@ import javax.persistence.*;
 public class Delivery {
 
     @Id
-    @Column(name = "ID")
-    private Long id;
+    @Column(name = "DELIVERY_ID")
+    private Long deliveryId;
 
-    @OneToOne
+    @OneToOne(mappedBy = "delivery")
     private Order order;
 
     @Column(name = "CITY")

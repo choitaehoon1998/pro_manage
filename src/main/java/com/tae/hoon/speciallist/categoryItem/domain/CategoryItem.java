@@ -1,6 +1,6 @@
-package com.tae.hoon.speciallist.categoryItem;
+package com.tae.hoon.speciallist.categoryItem.domain;
 
-import com.tae.hoon.speciallist.category.Category;
+import com.tae.hoon.speciallist.category.domain.Category;
 import com.tae.hoon.speciallist.item.domain.Item;
 import lombok.*;
 
@@ -14,14 +14,14 @@ import javax.persistence.*;
 @Table(name = "CATEGORY_ITEM")
 public class CategoryItem {
     @Id
-    @Column(name = "ID")
-    private String id;
+    @Column(name = "CATEORY_ITEM_ID")
+    private Long categoryItemId;
 
     @ManyToOne
-    @JoinColumn(name="ITEM_ID")
+    @JoinColumn(name = "ITEM_ID")
     private Item item;
 
     @ManyToOne
-    @JoinColumn(name="CATEGORY_ID")
+    @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 }

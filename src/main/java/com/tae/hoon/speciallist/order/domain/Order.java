@@ -17,19 +17,21 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Builder
-@Table(name = "ORDER")
+@Table(name = "ORDER1")
 public class Order {
     @Id
-    @Column(name = "ID")
-    private String id;
+    @Column(name = "ORDER_ID")
+    private Long orderId;
 
     @ManyToOne
+    @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "orderItemId")
     private List<OrderItem> orderItemList = new ArrayList<>();
 
     @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 
     @Column(name = "ORDER_DATE")

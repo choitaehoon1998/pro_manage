@@ -14,13 +14,15 @@ import javax.persistence.*;
 @Table(name = "ORDER_ITEM")
 public class OrderItem {
     @Id
-    @Column(name = "ID")
-    private String id;
+    @Column(name = "ORDER_ITEM_ID")
+    private Long orderItemId;
 
     @ManyToOne
+    @JoinColumn(name="ITEM_ID")
     private Item item;
 
     @ManyToOne
+    @JoinColumn(name="ORDER_ID")
     private Order order;
 
     @Column(name = "ORDER_PRICE")
