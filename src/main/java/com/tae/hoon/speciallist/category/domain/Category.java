@@ -3,12 +3,12 @@ package com.tae.hoon.speciallist.category.domain;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.tae.hoon.speciallist.category.dto.CategoryDto;
-import com.tae.hoon.speciallist.categoryItem.domain.CategoryItem;
 import lombok.*;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
@@ -25,9 +25,6 @@ public class Category {
 
     @Column(name = "NAME")
     private String name;
-
-    @OneToMany(mappedBy = "categoryItemId")
-    private List<CategoryItem> categoryItemList = new ArrayList<>();
 
     public static Category requestDtoToEntity(CategoryDto requestDto) {
         return Category.builder().categoryId(requestDto.getCategoryId()).name(requestDto.getName()).build();

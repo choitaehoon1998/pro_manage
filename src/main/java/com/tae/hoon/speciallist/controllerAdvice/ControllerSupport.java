@@ -1,6 +1,5 @@
 package com.tae.hoon.speciallist.controllerAdvice;
 
-import com.tae.hoon.speciallist.item.customException.ItemSeqNotProvidedProperlyException;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -13,11 +12,6 @@ import java.util.NoSuchElementException;
 @RestControllerAdvice
 @Slf4j
 public class ControllerSupport {
-
-    @ExceptionHandler({ItemSeqNotProvidedProperlyException.class})
-    public ResponseEntity<String> handle(ItemSeqNotProvidedProperlyException e) {
-        return new ResponseEntity<>("Check ItemSeq", HttpStatus.INTERNAL_SERVER_ERROR);
-    }
 
     @ExceptionHandler({ConstraintViolationException.class})
     public ResponseEntity<String> handle(ConstraintViolationException e) {
