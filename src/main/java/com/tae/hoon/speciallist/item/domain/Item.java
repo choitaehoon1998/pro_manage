@@ -1,5 +1,7 @@
 package com.tae.hoon.speciallist.item.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.tae.hoon.speciallist.categoryItem.domain.CategoryItem;
 import lombok.*;
 
@@ -13,6 +15,8 @@ import java.util.List;
 @Getter
 @Builder
 @Table(name = "ITEM")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "itemId")
 public class Item {
     @Id
     @Column(name = "ITEM_ID")
@@ -29,4 +33,5 @@ public class Item {
 
     @OneToMany(mappedBy = "categoryItemId")
     private List<CategoryItem> categoryItemList = new ArrayList<>();
+
 }
