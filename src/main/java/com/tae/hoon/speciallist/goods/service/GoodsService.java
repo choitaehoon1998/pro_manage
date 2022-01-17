@@ -7,6 +7,7 @@ import com.tae.hoon.speciallist.goodsOp.domain.GoodsOp;
 import com.tae.hoon.speciallist.goodsOp.repository.GoodsOpRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +48,9 @@ public class GoodsService {
             }
         } else {
             goods.setGoodsOpList(new ArrayList<>());
+        }
+        if (goods.getRegidate() == null) {
+            goods.setRegidate(LocalDateTime.now());
         }
         goodsRepository.save(goods);
     }

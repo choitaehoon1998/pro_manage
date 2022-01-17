@@ -1,9 +1,12 @@
 spring:
   datasource:
     driver-class-name:
-    username: root
+    #    url: jdbc:mysql://www.kocf.or.kr/pma/mestest?serverTimezone=UTC&characterEncoding=UTF-8
     url: jdbc:mysql://localhost:3306/mestest?serverTimezone=UTC&characterEncoding=UTF-8
-    password: '1234'
+      #    username: mestest
+      username: root
+      #    password: 'mestest'
+      password: '1234'
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
