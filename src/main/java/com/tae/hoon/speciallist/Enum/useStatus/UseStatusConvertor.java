@@ -1,18 +1,19 @@
-package com.tae.hoon.speciallist.Enum.gender;
+package com.tae.hoon.speciallist.Enum.useStatus;
 
 import javax.persistence.AttributeConverter;
 import java.util.EnumSet;
 import java.util.NoSuchElementException;
 
-public class GenderConvertor implements AttributeConverter<Gender, String> {
+public class UseStatusConvertor implements AttributeConverter<UseStatus, String> {
+
     @Override
-    public String convertToDatabaseColumn(Gender attribute) {
+    public String convertToDatabaseColumn(UseStatus attribute) {
         return attribute.getCode();
     }
 
     @Override
-    public Gender convertToEntityAttribute(String dbData) {
-        return EnumSet.allOf(Gender.class).stream()
+    public UseStatus convertToEntityAttribute(String dbData) {
+        return EnumSet.allOf(UseStatus.class).stream()
                 .filter(e -> e.getCode().equals(dbData))
                 .findAny()
                 .orElseThrow(NoSuchElementException::new);
